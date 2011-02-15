@@ -10,7 +10,7 @@
 #include "util.h"
 #include "func.h"
 
-void usage() {
+void usage(void) {
 	fprintf(stderr, "Usage:\n");
 	fprintf(stderr, "   -v : Debug\n");
 	fprintf(stderr, "   -h : help (this text)\n");
