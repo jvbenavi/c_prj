@@ -13,7 +13,7 @@ ENDIF(insource OR insourcesubdir)
 
 # The version number.
 set (Tutorial_VERSION_MAJOR 0)
-set (Tutorial_VERSION_MINOR 1)
+set (Tutorial_VERSION_MINOR 2)
 
 # gcc flags
 if (CMAKE_COMPILER_IS_GNUCC)
