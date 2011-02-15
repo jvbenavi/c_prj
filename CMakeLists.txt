@@ -15,7 +15,7 @@ endif ()
 
 #add_subdirectory(utl)
 #add_subdirectory(exe)
-add_subdirectory(src run/bin)
+add_subdirectory(src bin)
 
 # add custom target distclean
 # cleans and removes cmake generated files etc.
