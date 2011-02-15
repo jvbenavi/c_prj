@@ -10,7 +10,7 @@ void TestUtilFile(CuTest *tc) {
 	CuAssertTrue(tc, util_file(hp));
 }
    
-CuSuite* utilGetSuite() {
+CuSuite* utilGetSuite(void) {
 	CuSuite* suite = CuSuiteNew();
 	SUITE_ADD_TEST(suite, TestUtilFile);
 	return suite;

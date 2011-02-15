@@ -2,7 +2,7 @@
 
 #include "CuTest.h"
 
-CuSuite* utilGetSuite();
+CuSuite* utilGetSuite(void);
 
 void RunAllTests(void)
 {
@@ -20,4 +20,6 @@ void RunAllTests(void)
 int main(void)
 {
 	RunAllTests();
+
+	return(0);
 }
