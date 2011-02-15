@@ -5,12 +5,38 @@ project (prj)
 set (Tutorial_VERSION_MAJOR 0)
 set (Tutorial_VERSION_MINOR 1)
 
-ADD_DEFINITIONS(-g -O2 -fsigned-char -freg-struct-return -Wall -W -Wshadow -Wstrict-prototypes -Wpointer-arith -Wcast-qual -Winline -Werror)
+if (CMAKE_COMPILER_IS_GNUCC)
+    #set_source_files_properties(${EXAMPLE_SRC} PROPERTIES COMPILE_FLAGS "-std=c99 -Werror -Wall -pedantic")
+	ADD_DEFINITIONS(-g -fsigned-char -Wall -Wextra -Wshadow -Wstrict-prototypes -Wpointer-arith -Wcast-qual -Winline -Werror)
+	# -pedantic -std=c99 
+endif ()
 
-# add the binary tree to the search path for include files
-# so that we will find TutorialConfig.h
 #include_directories (inc lib)
 
 add_subdirectory(utl)
 add_subdirectory(exe)
 
+# add custom target distclean
+# cleans and removes cmake generated files etc.
+# Jan Woetzel 04/2003
+#
+IF (UNIX)
+  ADD_CUSTOM_TARGET (distclean @echo cleaning for source distribution)
+  SET(DISTCLEANED
+    cmake.depends
+    cmake.check_depends
+    CMakeCache.txt
+    cmake.check_cache
+    *.cmake
+    Makefile
+	CMakeFiles
+    )
+								   
+  ADD_CUSTOM_COMMAND(
+    DEPENDS clean
+    COMMENT "distribution clean"
+    COMMAND rm
+    ARGS    -Rf ${DISTCLEANED}
+    TARGET  distclean
+    )
+ENDIF(UNIX)
