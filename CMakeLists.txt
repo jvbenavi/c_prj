@@ -13,8 +13,9 @@ endif ()
 
 #include_directories (inc lib)
 
-add_subdirectory(utl)
-add_subdirectory(exe)
+#add_subdirectory(utl)
+#add_subdirectory(exe)
+add_subdirectory(src run/bin)
 
 # add custom target distclean
 # cleans and removes cmake generated files etc.
