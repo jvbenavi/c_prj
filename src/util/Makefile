@@ -1,5 +1,5 @@
 ########################################################################
-# prjone/utl/cutest/Makefile
+# prjone/utl/utils/Makefile
 ########################################################################
 
 # Directory paths 
@@ -14,35 +14,41 @@ CXTRA  = -g -Wall -I$(INCDIR)
 include $(TOPDIR)/cfg/makefile_rules
 
 # libraries 
-LIBTEST = $(LIBDIR)/cutest.a
-INCTEST = $(INCDIR)/CuTest.h
+LIBUTIL = $(LIBDIR)/util.a
+INCUTIL = $(INCDIR)/util.h
 
 #
 # TARGETS
 #
 
-all: $(LIBTEST)
+all: $(LIBUTIL)
 
 clean: 
-	$(RM) $(LIBTEST) 
-	$(RM) *.o $(BINDIR)/testCuTest
+	$(RM) $(LIBUTIL) 
+	$(RM) *.o $(BINDIR)/testUtil
 
 install:
 
 uninstall:
 
-test: $(BINDIR)/testCuTest
+test: $(BINDIR)/testUtil
 
 ############################################################
 
-$(LIBTEST): $(INCTEST) \
-			$(LIBTEST)(CuTest.o) 
+$(LIBUTIL): $(INCUTIL) \
+			$(LIBUTIL)(util_file.o) \
+		    $(LIBUTIL)(util_net.o) \
+			$(LIBUTIL)(util_math.o) 
 	$(RANLIB) $(RLIBARGS) $@
 	@echo "$@ build is complete"
 
-$(BINDIR)/testCuTest: AllTests.o CuTestTest.o $(LIBTEST) $(INCTEST)
-	$(RM) $@
-	$(CC) $(CFLAGS) $(LIBTEST) $< CuTestTest.o -o $@
-	@echo "$@ build is complete"
+LIBTEST = $(LIBDIR)/cutest.a
+INCTEST = $(INCDIR)/CuTest.h
+LIBS = $(LIBUTIL) $(LIBTEST)
+INCS = $(INCUTIL) $(INCTEST)
 
+$(BINDIR)/testUtil: AllTests.o util_test.o $(LIBS) $(INCS)
+	$(RM) $@
+	$(CC) $(CFLAGS) $(LIBS) $< util_test.o -o $@
+	@echo "$@ build is complete"
 
