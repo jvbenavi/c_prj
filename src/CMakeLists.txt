@@ -1,4 +1,4 @@
 
 add_subdirectory(exe)
-add_subdirectory(utl)
+add_subdirectory(util)
 

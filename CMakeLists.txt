@@ -11,11 +11,14 @@ if (CMAKE_COMPILER_IS_GNUCC)
 	# -pedantic -std=c99 
 endif ()
 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin")
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/lib")
+
 #include_directories (inc lib)
 
 #add_subdirectory(utl)
 #add_subdirectory(exe)
-add_subdirectory(src bin)
+add_subdirectory(src)
 
 # add custom target distclean
 # cleans and removes cmake generated files etc.
