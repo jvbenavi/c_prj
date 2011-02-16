@@ -46,6 +46,15 @@ uninstall:
 	done
 	@find . -name ".DS_Store" -delete
 
+check:
+	@-for indir in $(MAKE_DIRS) ; do \
+	  if [ -d $$indir ] ; then \
+	    ( echo "\nWorking on $$indir" ; \
+	      cd $$indir ; \
+	      make check ) ; \
+	  fi ; \
+	done
+
 ########################################################################
 
 cfg/makefile_rules:

@@ -44,5 +44,14 @@ uninstall:
 	   make uninstall ) ; \
 	done
 
+check:
+	@-for indir in $(MAKE_DIRS) ; do \
+	  if [ -d $$indir ] ; then \
+	    ( echo "\nWorking on $$indir" ; \
+	      cd $$indir ; \
+	      make check ) ; \
+	  fi ; \
+	done
+
 ########################################################################
 

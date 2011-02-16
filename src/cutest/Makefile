@@ -32,7 +32,8 @@ install:
 
 uninstall:
 
-test: $(BINDIR)/testCuTest
+check: $(BINDIR)/testCuTest
+	@$(BINDIR)/testCuTest 
 
 ############################################################
 

@@ -42,6 +42,9 @@ install:
 
 uninstall:
 
+check: $(BINDIR)/prj
+	@$(BINDIR)/prj 
+
 ############################################################
 
 $(BINDIR)/prj: prj_main.o func1.o func2.o $(LIBS) $(INCS)

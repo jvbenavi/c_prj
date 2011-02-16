@@ -32,7 +32,8 @@ install:
 
 uninstall:
 
-test: $(BINDIR)/testUtil
+check: $(BINDIR)/testUtil
+	@$(BINDIR)/testUtil
 
 ############################################################
 
