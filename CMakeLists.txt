@@ -15,7 +15,7 @@ if(UNIX)
 	#set(MATLAB_INCLUDE_DIR /Applications/MATLAB_R2011a.app/extern/include)
 	set(MATLAB_INCLUDE_DIR /Applications/MATLAB_R2010a.app/extern/include)
 else(UNIX) # WIN32
-	set(MATLAB_INCLUDE_DIR C:\Programs\MATLAB_R1010a\extern\include)
+	#set(MATLAB_INCLUDE_DIR C:\Programs\MATLAB_R1010a\extern\include)
 endif(UNIX)
 
 # The version number. (currently unused)

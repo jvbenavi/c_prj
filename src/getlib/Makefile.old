@@ -1,0 +1,41 @@
+
+getlibdir = ./
+
+getlibfiles = \
+$(getlibdir)Cinteger.o \
+$(getlibdir)Gcommand.o \
+$(getlibdir)Gsignal.o \
+$(getlibdir)Preproc.o \
+$(getlibdir)get_Util.o \
+$(getlibdir)Clogical.o \
+$(getlibdir)Gerr.o \
+$(getlibdir)Icommand.o \
+$(getlibdir)Putpromp.o \
+$(getlibdir)globals.o \
+$(getlibdir)Creal.o	\
+$(getlibdir)Getnbl.o \
+$(getlibdir)Index.o \
+$(getlibdir)Real.o \
+$(getlibdir)linteger.o \
+$(getlibdir)Filename.o	\
+$(getlibdir)Ginput.o	\
+$(getlibdir)Integer.o	\
+$(getlibdir)Scommand.o \
+$(getlibdir)xcommand.o \
+$(getlibdir)Filename_ext.o \
+$(getlibdir)Gitem.o \
+$(getlibdir)Logical.o \
+$(getlibdir)Strtrm.o
+
+all: test
+
+test: test.c $(getlibfiles)
+	$(CC) -Wall $^ -o test 
+
+%.o : %.c
+	$(CC) -c $(CFLAGS) -Wall $< -o $@
+
+clean: 
+	rm -f $(getlibfiles) 
+	rm -f test
+
