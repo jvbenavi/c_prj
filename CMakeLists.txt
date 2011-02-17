@@ -1,3 +1,4 @@
+
 cmake_minimum_required (VERSION 2.8)
 project (prj)
 
@@ -6,8 +7,16 @@ STRING(COMPARE EQUAL "${CMAKE_SOURCE_DIR}" "${CMAKE_BINARY_DIR}" insource)
 GET_FILENAME_COMPONENT(PARENTDIR ${CMAKE_SOURCE_DIR} PATH)
 STRING(COMPARE EQUAL "${CMAKE_SOURCE_DIR}" "${PARENTDIR}" insourcesubdir)
 IF(insource OR insourcesubdir)
-    MESSAGE(FATAL_ERROR "${PROJECT_NAME} requires an out of source build. Please, see README.")
+    MESSAGE(FATAL_ERROR "${PROJECT_NAME} requires an out of source build. Please, see README.txt")
 ENDIF(insource OR insourcesubdir)
+
+#find_package(Matlab) #outdated, doesn't work
+if(UNIX)
+	#set(MATLAB_INCLUDE_DIR /Applications/MATLAB_R2011a.app/extern/include)
+	set(MATLAB_INCLUDE_DIR /Applications/MATLAB_R2010a.app/extern/include)
+else(UNIX) # WIN32
+	set(MATLAB_INCLUDE_DIR C:\Programs\MATLAB_R1010a\extern\include)
+endif(UNIX)
 
 # The version number. (currently unused)
 set (Tutorial_VERSION_MAJOR 0)

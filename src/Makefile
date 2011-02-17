@@ -4,7 +4,7 @@
 ########################################################################
 
 SHELL=/bin/sh
-MAKE_DIRS      = cutest util exe
+MAKE_DIRS      = cutest mexutil util exe
 INSTALL_DIRS   = $(MAKE_DIRS)
 UNINSTALL_DIRS = $(MAKE_DIRS)
 

@@ -15,7 +15,7 @@ CXTRA  = -g -Wall -I$(INCDIR)
 include $(TOPDIR)/cfg/makefile_rules
 
 # libraries 
-LIBTEST = $(LIBDIR)/cutest.a
+LIBTEST = $(LIBDIR)/libcutest.a
 INCTEST = $(INCDIR)/CuTest.h
 
 #

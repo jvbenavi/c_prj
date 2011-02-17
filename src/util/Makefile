@@ -15,7 +15,7 @@ CXTRA  = -g -Wall -I$(INCDIR)
 include $(TOPDIR)/cfg/makefile_rules
 
 # libraries 
-LIBUTIL = $(LIBDIR)/util.a
+LIBUTIL = $(LIBDIR)/libutil.a
 INCUTIL = $(INCDIR)/util.h
 
 #
@@ -44,7 +44,7 @@ $(LIBUTIL): $(INCUTIL) \
 	$(RANLIB) $(RLIBARGS) $@
 	@echo "$@ build is complete"
 
-LIBTEST = $(LIBDIR)/cutest.a
+LIBTEST = $(LIBDIR)/libcutest.a
 INCTEST = $(INCDIR)/CuTest.h
 LIBS = $(LIBUTIL) $(LIBTEST)
 INCS = $(INCUTIL) $(INCTEST)

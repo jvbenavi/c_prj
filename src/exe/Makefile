@@ -26,7 +26,7 @@ CXTRA  = -g -Wall -I$(INCDIR) -fno-common # force proper use of extern
 include $(TOPDIR)/cfg/makefile_rules
 
 # libraries
-LIBS = $(LIBDIR)/util.a
+LIBS = $(LIBDIR)/libutil.a
 INCS = $(INCDIR)/util.h
 
 #
