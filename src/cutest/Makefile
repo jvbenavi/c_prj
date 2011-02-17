@@ -16,7 +16,7 @@ include $(TOPDIR)/cfg/makefile_rules
 
 # libraries 
 LIBTEST = $(LIBDIR)/libcutest.a
-INCTEST = $(INCDIR)/CuTest.h
+INCTEST = $(INCDIR)/cutest.h
 
 #
 # TARGETS

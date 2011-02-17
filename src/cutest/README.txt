@@ -17,7 +17,7 @@ For details on licensing see license.txt.
 GETTING STARTED
 
 To add unit testing to your C code the only files you need are
-CuTest.c and CuTest.h. 
+CuTest.c and cutest.h. 
 
 CuTestTest.c and AllTests.c have been included to provide an
 example of how to write unit tests and then how to aggregate them
@@ -48,11 +48,11 @@ test first exercise. The goal is to create a library of string
 utilities. First, lets write a function that converts a
 null-terminated string to all upper case.
 
-Ensure that CuTest.c and CuTest.h are accessible from your C
+Ensure that CuTest.c and cutest.h are accessible from your C
 project. Next, create a file called StrUtil.c with these
 contents:
 
-    #include "CuTest.h"
+    #include "cutest.h"
     
     char* StrToUpper(char* str) {
         return str;
@@ -73,7 +73,7 @@ contents:
     
 Create another file called AllTests.c with these contents:
 
-    #include "CuTest.h"
+    #include "cutest.h"
     
     CuSuite* StrUtilGetSuite();
     

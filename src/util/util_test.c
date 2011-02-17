@@ -1,5 +1,5 @@
 
-#include "CuTest.h"
+#include "cutest.h"
 #include "util.h"
     
 void TestUtilFile(CuTest *tc) {

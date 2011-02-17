@@ -44,7 +44,7 @@ $(LIBMEXUTIL): $(INCMEXUTIL) \
 	@echo "$@ build is complete"
 
 #LIBTEST = $(LIBDIR)/cutest.a
-#INCTEST = $(INCDIR)/CuTest.h
+#INCTEST = $(INCDIR)/cutest.h
 #LIBS = $(LIBUTIL) $(LIBTEST)
 #INCS = $(INCUTIL) $(INCTEST)
 
