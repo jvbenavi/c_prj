@@ -10,7 +10,6 @@
 *   HISTORY
 *
 *   $Id$
-*   $Log: optlist.c,v $
 *   Revision 1.2  2008/12/25 05:33:28  michael
 *   Add support for multiple options following a single dash ('-').
 *
@@ -65,7 +64,7 @@
 /***************************************************************************
 *                               PROTOTYPES
 ***************************************************************************/
-option_t *MakeOpt(const char option, char *const argument, const int index);
+option_t *MakeOpt(const char option, char *const argument, const int indx);
 int MatchOpt(const char argument, char *const options);
 
 /***************************************************************************
@@ -98,11 +97,12 @@ int MatchOpt(const char argument, char *const options);
 *   NOTE: The caller is responsible for freeing up the option list when it
 *         is no longer needed.
 ****************************************************************************/
-option_t *GetOptList(const int argc, char *const argv[], char *const options)
+option_t *GetOptList(const int argc, char *const argv[], char *const options) 
 {
     int nextArg;
     option_t *head, *tail;
-    int optIndex, argIndex;
+    int optIndex;
+	unsigned int argIndex;
 
     /* start with first argument and nothing found */
     nextArg = 1;
@@ -173,13 +173,13 @@ option_t *GetOptList(const int argc, char *const argv[], char *const options)
 *   Parameters : option - this option character
 *                argument - pointer string containg the argument for option.
 *                           Use NULL for no argument
-*                index - argv[index] contains argument us OL_NOINDEX for
+*                indx - argv[index] contains argument us OL_NOINDEX for
 *                        no argument
 *   Effects    : A new option_t type variable is created on the heap.
 *   Returned   : Pointer to newly created and initialized option_t type
 *                structure.  NULL if space for structure can't be allocated.
 ****************************************************************************/
-option_t *MakeOpt(const char option, char *const argument, const int index)
+option_t *MakeOpt(const char option, char *const argument, const int indx)
 {
     option_t *opt;
 
@@ -189,7 +189,7 @@ option_t *MakeOpt(const char option, char *const argument, const int index)
     {
         opt->option = option;
         opt->argument = argument;
-        opt->argIndex = index;
+        opt->argIndex = indx;
         opt->next = NULL;
     }
     else
@@ -210,7 +210,7 @@ option_t *MakeOpt(const char option, char *const argument, const int index)
 *                be freed and list will be set to NULL.
 *   Returned   : None
 ****************************************************************************/
-void FreeOptList(option_t *list)
+void FreeOptList(option_t *list) 
 {
     option_t *head, *next;
 
@@ -242,7 +242,7 @@ void FreeOptList(option_t *list)
 *   Returned   : Index of argument in option list.  Index of end of string
 *                if arguement does not appear in the option list.
 ****************************************************************************/
-int MatchOpt(const char argument, char *const options)
+int MatchOpt(const char argument, char *const options) 
 {
     int optIndex = 0;
 
