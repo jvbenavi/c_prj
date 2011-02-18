@@ -1,7 +1,7 @@
 #include "getlib.h"
 #include "getliba.h"
 
-int get_Error()
+int get_Error(void)
 {
  static int status;
 

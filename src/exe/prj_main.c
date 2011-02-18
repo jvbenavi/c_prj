@@ -45,7 +45,7 @@ int main(int argc, char **argv) {
 
 	printf("Inside main() of %s\n", argv[0]);
 
-	// cmnd = icommand("cmnd1 cmnd2 cmnd3",uinput,"");
+	/* cmnd = icommand("cmnd1 cmnd2 cmnd3",uinput,""); */
 
 	/* use a function from each object file that is in the library */
 	util_file(intp);

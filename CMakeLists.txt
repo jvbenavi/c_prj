@@ -24,11 +24,8 @@ set (Tutorial_VERSION_MINOR 2)
 
 # gcc flags
 if (CMAKE_COMPILER_IS_GNUCC)
-    #set_source_files_properties(${EXAMPLE_SRC} PROPERTIES 
-	#                            COMPILE_FLAGS "-std=c99 -Werror -Wall -pedantic")
 	ADD_DEFINITIONS(-g -fsigned-char -Wall -Wextra -Wshadow -Wstrict-prototypes 
-	                -Wpointer-arith -Wcast-qual -Winline -Werror)
-					# -pedantic -std=c99 
+	                -Wpointer-arith -Wcast-qual -Winline -pedantic -ansi) # -Werror
 endif(CMAKE_COMPILER_IS_GNUCC) 
 
 # designate output directores for executibles and libraries
@@ -42,9 +39,12 @@ enable_testing()
 set(CMAKE_CTEST_COMMAND ctest -V)
 add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND})
 
-# add include for all the *.h header files
+# add inc directory for all the header files
 include_directories(inc)
+# add lib directory for all the libraries
+cmake_policy(SET CMP0015 NEW)
+link_directories(lib)
 
-# 
+# procede to find and compile all source files
 add_subdirectory(src)
 

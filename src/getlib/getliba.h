@@ -11,7 +11,7 @@ int string_GetItem(char *item, char *input);
 void get_PutPrompt(char *prompt, char *a_default);
 void get_SignalGetlibError(int status, char *message);
 int get_NonblankLine(char *nonblankLine, char *prompt, char *input, char *a_default );
-int get_Error();
+int get_Error(void);
 
 
 int string_Trim( char *destination , char *source );
