@@ -3,3 +3,5 @@
 - mkdir bld; ccmake ../; make
 - matlab> addpath(pwd,fullfile(pwd,'bin')); make
 
+
+this is line seven
